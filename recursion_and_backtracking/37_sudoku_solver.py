@@ -20,9 +20,6 @@ class Solution(object):
     def solve(self, board):
         if self.solved:
             return
-        # for i in board:
-            # print(i)
-        # input()
         for i in range(9):
             for j in range(9):
                 if board[i][j] == 0:
@@ -35,17 +32,12 @@ class Solution(object):
                             board[i][j] = 0
                     return
         self.solved = True
-        # for i in board:
-            # print(i)
 
     def solveSudoku(self, board):
         for i in range(9):
             board[i] = [int(x) if x != '.' else 0 for x in board[i]]
-        # for i in board:
-            # print(i)
         self.solved = False
         self.solve(board)
-        # print('------------------------------')
         for i in range(9):
             board[i] = ''.join([str(x) for x in board[i]])
 
@@ -59,10 +51,26 @@ grid = ["53..7....",
         "...419..5",
         "....8..79"]
 
-Solution().solveSudoku(grid)
-for i in grid:
-    print(i)
+for i in range(len(grid)):
+    if i % 3 == 0:
+        print('----------------------')
+    for j in range(len(grid[0])):
+        if j % 3 == 0:
+            print('|',end='')
+        print(grid[i][j],end=' ')
+    print('|')
+print('----------------------')
 
+Solution().solveSudoku(grid)
+for i in range(len(grid)):
+    if i % 3 == 0:
+        print('----------------------')
+    for j in range(len(grid[0])):
+        if j % 3 == 0:
+            print('|',end='')
+        print(grid[i][j],end=' ')
+    print('|')
+print('----------------------')
 
 
 
